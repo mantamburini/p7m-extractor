@@ -11,8 +11,9 @@ This PowerShell script scans a specified directory for .P7M files (digitally sig
 - Extracts PDF files from P7M containers
 - Supports recursive directory scanning
 - Provides progress indication during processing
-- Offers verbose mode with detailed tabular output
+- Offers detailed mode with tabular output
 - Validates input directory paths
+- Includes comprehensive error handling with colored output
 
 ## Requirements
 
@@ -22,18 +23,18 @@ This PowerShell script scans a specified directory for .P7M files (digitally sig
 ## Usage
 
 ```powershell
-.\Extract-P7M.ps1 [-Path <String>] [-Recurse] [-Verbose]
+.\Extract-P7M.ps1 [-Path <String>] [-Recurse] [-Detailed]
 ```
 
 ### Parameters
 
 - **-Path** `<String>`  
-  The directory path to scan for .P7M files. Defaults to the script's directory. Must be a valid container path.
+  The directory path to scan for .P7M files. Defaults to the current working directory. Must be a valid container path.
 
 - **-Recurse** `<Switch>`  
-  If specified, recursively scans subdirectories for .P7M files.
+  If specified, recursively scans subdirectories for .P7m files.
 
-- **-Verbose** `<Switch>`  
+- **-Detailed** `<Switch>`  
   If specified, provides detailed processing information in tabular format instead of simple console messages.
 
 ### Examples
@@ -56,20 +57,22 @@ This PowerShell script scans a specified directory for .P7M files (digitally sig
    .\Extract-P7M.ps1 -Path "C:\MyDocuments" -Recurse
    ```
 
-4. Extract PDFs with verbose tabular output:  
+4. Extract PDFs with detailed tabular output:  
 
    ```powershell
-   .\Extract-P7M.ps1 -Path "C:\MyDocuments" -Verbose
+   .\Extract-P7M.ps1 -Path "C:\MyDocuments" -Detailed
    ```
 
 ### Output
 
-- Without `-Verbose`: Displays "OK <filename>" for successful extractions or warnings for files without PDFs.
-- With `-Verbose`: Outputs a table with columns: FileName, Status, OutputFile, Size.
+- Without `-Detailed`: Displays colored "OK <filename>" (green) for successful extractions, warnings for files without PDFs, or red error messages for processing failures.
+- With `-Detailed`: Outputs a table with columns: FileName, Status, OutputFile, Size. Exits early if no .p7m files are found.
 
 ## Changelog
 
-- **0.2.0** - Added -Verbose parameter for tabular output.
+- **0.3.0** - Fixed default path behavior to use current working directory instead of script location.
+- **0.2.1** - Fixed parameter name conflict (Verbose -> Detailed).
+- **0.2.0** - Added detailed output parameter for tabular format.
 - **0.1.0** - Initial release.
 
 ## Author
