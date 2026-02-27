@@ -1,16 +1,61 @@
-# p7m-extractor
+<a id="readme-top"></a>
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![project_license][license-shield]][license-url]
 
-Scripts to extract original documents from .P7M signed files.
 
-## Description
+
+<div align="center">
+  <h3 align="center">p7m-extractor</h3>
+
+  <p align="center">
+    Scripts to extract original documents from .P7M signed files.
+    <br />
+    <br />
+    <a href="https://github.com/mantamburini/p7m-extractor/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/mantamburini/p7m-extractor/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
+
+
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#features">Features</a></li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+## About The Project
 
 These scripts scan a specified directory for .P7M files (digitally signed containers) and extract the embedded PDF documents. They identify the PDF header within the P7M file and save the extracted content as a new PDF file.
 
 Available implementations:
 - **PowerShell** (`Extract-P7M.ps1`) - Windows-native solution
 - **Python** (`extract-p7m.py`) - Cross-platform solution
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 ## Features
 
@@ -21,15 +66,32 @@ Available implementations:
 - Validates input directory paths
 - Includes comprehensive error handling with colored output
 
-## Requirements
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### PowerShell Version
+
+
+## Getting Started
+
+### Prerequisites
+
+#### PowerShell Version
 - Windows PowerShell 5.1 or later
 - Execution policy allowing script execution (e.g., RemoteSigned)
 
-### Python Version
+#### Python Version
 - Python 3.6 or later
 - No additional dependencies required
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/mantamburini/p7m-extractor.git
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 ## Usage
 
@@ -76,6 +138,8 @@ Available implementations:
    .\Extract-P7M.ps1 -Path "C:\MyDocuments" -Detailed
    ```
 
+---
+
 ### Python Script
 
 ```bash
@@ -119,6 +183,8 @@ python extract-p7m.py [path] [-r] [-d]
    python extract-p7m.py "/path/to/documents" -d
    ```
 
+---
+
 ### Output
 
 #### PowerShell Version
@@ -129,21 +195,60 @@ python extract-p7m.py [path] [-r] [-d]
 - Without `-d`: Displays "OK <filename>" for successful extractions, "NO PDF <filename>" for files without PDFs, or error messages for processing failures.
 - With `-d`: Outputs a table with columns: FileName, Status, OutputFile, Size. Exits early if no .p7m files are found.
 
-## Changelog
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Python Version
-- **0.3.0** - Initial Python release with feature parity to PowerShell version.
 
-### PowerShell Version
-- **0.3.0** - Fixed default path behavior to use current working directory instead of script location.
-- **0.2.1** - Fixed parameter name conflict (Verbose -> Detailed).
-- **0.2.0** - Added detailed output parameter for tabular format.
-- **0.1.0** - Initial release.
 
-## Author
+## Roadmap
 
-Marcello Anselmi Tamburini
+See the [open issues](https://github.com/mantamburini/p7m-extractor/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 ## License
 
-This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+Distributed under the GPL-3.0 License. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## Contact
+
+Marcello Anselmi Tamburini
+
+Project Link: [https://github.com/mantamburini/p7m-extractor](https://github.com/mantamburini/p7m-extractor)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/mantamburini/p7m-extractor.svg?style=for-the-badge
+[contributors-url]: https://github.com/mantamburini/p7m-extractor/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/mantamburini/p7m-extractor.svg?style=for-the-badge
+[forks-url]: https://github.com/mantamburini/p7m-extractor/network/members
+[stars-shield]: https://img.shields.io/github/stars/mantamburini/p7m-extractor.svg?style=for-the-badge
+[stars-url]: https://github.com/mantamburini/p7m-extractor/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mantamburini/p7m-extractor.svg?style=for-the-badge
+[issues-url]: https://github.com/mantamburini/p7m-extractor/issues
+[license-shield]: https://img.shields.io/github/license/mantamburini/p7m-extractor.svg?style=for-the-badge
+[license-url]: https://github.com/mantamburini/p7m-extractor/blob/main/LICENSE
